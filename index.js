@@ -17,7 +17,7 @@ app.get('/about', function(req, res) {
 });
 
 app.get('*', function(req, res){
-  res.status(404).send('what???');
+  res.status(404).render('errors/404')
 });
 
 app.listen(8080);

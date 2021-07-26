@@ -18,15 +18,15 @@
     <link rel="stylesheet" href="/assets/css/Team-Clean.css">
 </head>
 
-<body style="border-style: none;">
+<body>
     <nav class="navbar navbar-light navbar-expand-md navigation-clean">
         <div class="container"><a class="navbar-brand" href="/">Simple Slash</a><button data-bs-toggle="collapse"
                 class="navbar-toggler" data-bs-target="#navcol-1"><span class="visually-hidden">Toggle
                     navigation</span><span class="navbar-toggler-icon"></span></button>
             <div class="collapse navbar-collapse" id="navcol-1">
                 <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link active" href="/">Home</a></li>
-                    <li class="nav-item"><a class="nav-link" href="/about">About Us</a></li>
+                    <li class="nav-item"><a class="nav-link acti" href="/">Home</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="/about">About Us</a></li>
                     <li class="nav-item"><a class="nav-link" href="/manage">Manage Commands</a></li>
                     <li class="nav-item dropdown"><a class="dropdown-toggle nav-link" aria-expanded="false"
                             data-bs-toggle="dropdown" href="#">Random facts about...</a>
@@ -39,15 +39,35 @@
         </div>
     </nav>
     <div class="text-center" style="margin: 10%;">
-        <h1 class="text-center">Manage Your Bot's Slash Commands.<br>Easy, Free.</h1><a class="btn btn-secondary"
-            href="/manage" style="margin: 3%;">Manage Commands</a>
-        <p>Discord recently implemented Slash Commands, a way for users to interact with your bot. Everything about them
-            is great, with one small problem: creating the slash commands. As of right now, you can't easily do this,
-            you either use a http request tool which involves writing JSON code or use your library's function (if they
-            do have such functions). In all cases, you gotta write code. That's why we created this website. Using your
-            bot token (which we DO NOT save, we don't even use cookies) and some clicks, you can easily create, edit and
-            delete slash commands using a responsive and simple user interface. btw don't be surprised if some things
-            don't work, this website is still WiP.</p>
+        <section class="team-clean">
+            <div class="container">
+                <div class="intro">
+                    <h2 class="text-center">Our Team</h2>
+                    <p class="text-center">We created this website for fun, and we don't plan to make any money out of
+                        it. Hence, it's open source and free to everyone.</p>
+                </div>
+                <div class="row people">
+                    <div class="col-md-6 col-lg-4 offset-lg-1 item"><img class="rounded-circle"
+                            src="/assets/img/cute.jpg">
+                        <h3 class="name">Lumap</h3>
+                        <p class="title">project lead, design, backend</p>
+                        <p class="description">Hello! I'm a french man, 16 years old, and I am the one who had the idea
+                            of creating this website. I hope you enjoy it!</p>
+                        <div class="social"><a href="#"><i class="fab fa-discord"></i></a><a href="#"><i
+                                    class="fa fa-facebook-official"></i></a><a href="#"><i
+                                    class="fa fa-twitter"></i></a><a href="#"><i class="fa fa-instagram"></i></a></div>
+                    </div>
+                    <div class="col-md-6 col-lg-4 offset-lg-2 item"><img class="rounded-circle"
+                            src="/assets/img/linkoos.gif">
+                        <h3 class="name">Link</h3>
+                        <p class="title">didnt do anything yet but still deserves to be here</p>
+                        <p class="description">h</p>
+                        <div class="social"><a href="#"><i class="fa fa-facebook-official"></i></a><a href="#"><i
+                                    class="fa fa-twitter"></i></a><a href="#"><i class="fa fa-instagram"></i></a></div>
+                    </div>
+                </div>
+            </div>
+        </section>
     </div>
     <script src="/assets/bootstrap/js/bootstrap.min.js"></script>
 </body>
