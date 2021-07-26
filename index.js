@@ -1,5 +1,6 @@
 var express = require('express');
 var app = express();
+var axios = require('axios')
 
 // set the view engine to ejs
 app.set('view engine', 'ejs');
@@ -15,6 +16,17 @@ app.get('/', function(req, res) {
 app.get('/about', function(req, res) {
   res.render('about');
 });
+
+app.get('/facts/cats', async function (req,res){
+  const fact = (await axios("https://catfact.ninja/fact")).data.fact
+  res.render('facts/cats',{
+    fact: fact
+  })
+})
+
+
+
+
 
 app.get('*', function(req, res){
   res.status(404).render('errors/404')
