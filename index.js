@@ -24,7 +24,13 @@ app.get('/facts/cats', async function (req,res){
   })
 })
 
-
+app.get('/manage',async function (req,res){
+  if (!req.query?.token) {
+    return res.render('give_id')
+  } else {
+    return res.render('manage',{})
+  }
+})
 
 
 
