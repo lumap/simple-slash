@@ -26,8 +26,8 @@
             <div class="collapse navbar-collapse" id="navcol-1">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
-                    <li class="nav-item"><a class="nav-link active" href="/about">About Us</a></li>
-                    <li class="nav-item"><a class="nav-link" href="/manage">Manage Commands</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/about">About Us</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="/manage">Manage Commands</a></li>
                     <li class="nav-item dropdown"><a class="dropdown-toggle nav-link" aria-expanded="false"
                             data-bs-toggle="dropdown" href="#">Random facts about...</a>
                         <div class="dropdown-menu"><a class="dropdown-item" href="/facts/cats">Cats</a><a
@@ -38,6 +38,60 @@
             </div>
         </div>
     </nav>
+    <script>
+        async function delete_command(commandId) {
+            const token = "<%= token %>"
+            const req = await fetch('<%= "https://discordapp.com/api/v9/applications/" + id %>' + `/commands/${commandId}`, {
+                method: "DELETE",
+                headers: {
+                    "Authorization": `Bot ${token}`,
+                    "Content-Type": "application/json",
+                },
+            })
+            if (req.status !== 204) {
+                alert(`Failed to delete command: ${req.status}`)
+                return;
+            }
+            window.location.reload()
+        }
+    </script>
+    <div role="alert" class="alert alert-success"><span>Please note that global slash command can take up to an hour to
+            update.</span></div>
+    <div style="margin: 2%;">
+        <% for (let i=0;i<commands.length;i++) { const com = commands[i]; %>
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title"><%= com.name %></h4>
+                <p class="card-text"><%= com.description %> </p>
+                <div><a class="btn btn-primary" data-bs-toggle="collapse" aria-expanded="false"
+                        aria-controls=<%= `collapse-${i}` %> href=<%= `#collapse-${i}` %> role="button">View
+                        subcommands/args</a>
+                    <div class="collapse" id=<%= `collapse-${i}` %>>
+                        <p><%= com.options?JSON.stringify(com.options):"no options/subcommands" %></p>
+                    </div>
+                </div><button class="btn btn-primary btn-danger" data-bs-toggle="modal"
+                    data-bs-target=<%= `#modal${i}` %> type="button">Delete command</button>
+                <div class="modal fade" aria-labelledby="exampleModalLabel" aria-hidden="true" tabindex="-1"
+                    id=<%= `modal${i}` %>>
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h4 class="modal-title">Warning!</h4><button type="button" class="btn-close"
+                                    data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <p>Are you sure you want to delete the <%= com.name %> command?</p>
+                            </div>
+                            <div class="modal-footer"><button class="btn btn-light" type="button"
+                                    data-bs-dismiss="modal">No</button><button class="btn btn-primary btn-danger"
+                                    type="button" onclick=<%= `delete_command("${com.id}")` %>>Yes</button></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <% } %>
+    </div>
     <script src="/assets/bootstrap/js/bootstrap.min.js"></script>
 </body>
 
