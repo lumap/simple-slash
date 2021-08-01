@@ -47,8 +47,8 @@
     <script>
         async function redirect() {
             const token = document.getElementById("token").value
-            window.location.href = "/managecommands"
             await fetch("/setcookie?token=" + token)
+            window.location.href = "/managecommands"
         }
     </script>
 </body>
