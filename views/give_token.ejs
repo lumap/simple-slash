@@ -19,6 +19,7 @@
 </head>
 
 <body>
+
     <nav class="navbar navbar-light navbar-expand-md navigation-clean">
         <div class="container"><a class="navbar-brand" href="/">Simple Slash</a><button data-bs-toggle="collapse"
                 class="navbar-toggler" data-bs-target="#navcol-1"><span class="visually-hidden">Toggle
@@ -44,9 +45,10 @@
     </div>
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>
     <script>
-        function redirect() {
+        async function redirect() {
             const token = document.getElementById("token").value
-            window.location = "/manage?token=" + token
+            window.location.href = "/managecommands"
+            await fetch("/setcookie?token=" + token)
         }
     </script>
 </body>

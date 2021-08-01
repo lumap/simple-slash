@@ -54,9 +54,15 @@
             }
             window.location.reload()
         }
+        async function othertoken() {
+            await fetch("/deletecookie")
+            window.location.href = "/manage"
+        }
     </script>
-    <div role="alert" class="alert alert-success"><span>Please note that global slash command can take up to an hour to
+    <div style="margin: 2%;" role="alert" class="alert alert-success"><span>Please note that global slash command can
+            take up to an hour to
             update.</span></div>
+    <div style="margin: 1%;"><a class="btn btn-secondary" onclick="othertoken()">Use another bot token</a></div>
     <div style="margin: 2%;">
         <% for (let i=0;i<commands.length;i++) { const com = commands[i]; %>
         <div class="card">
