@@ -27,7 +27,11 @@ app.get('/facts/cats', async function (req, res) {
 })
 
 app.get("/manage",function (req,res) {
-  res.render('give_token')
+  if (req.cookies.token) {
+    return res.redirect("/managecommands")
+  } else {
+    res.render('give_token')
+  }
 })
 
 app.get("/setcookie",function(req,res){

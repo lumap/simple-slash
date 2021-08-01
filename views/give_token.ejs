@@ -50,9 +50,6 @@
             await fetch("/setcookie?token=" + token)
             window.location.href = "/managecommands"
         }
-        function isCookie() {
-            if (document.cookie.split("=")[1]) window.location.href = "/managecommands"
-        } isCookie()
     </script>
 </body>
 
